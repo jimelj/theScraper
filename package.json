@@ -1,0 +1,36 @@
+{
+  "name": "the-scraper",
+  "version": "1.0.0",
+  "description": "comments on the latest news. using Mongodb, Mongoose and Cheerio",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimelj/theScraper.git"
+  },
+  "keywords": [
+    "comments",
+    "latest",
+    "news",
+    "cheerio",
+    "mongo",
+    "mongoose"
+  ],
+  "author": "Jimel J. Joseph",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jimelj/theScraper/issues"
+  },
+  "homepage": "https://github.com/jimelj/theScraper#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cheerio": "^1.0.0-rc.1",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.10.5",
+    "morgan": "^1.8.2",
+    "request": "^2.81.0"
+  }
+}
