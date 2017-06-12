@@ -1,0 +1,14 @@
+.navbar{
+  padding: 15px;
+}
+
+.navbar-brand{
+  font-size: 2em;
+}
+
+.art {
+  padding: 20px;
+}
+.navbar-default{
+  margin-bottom: 0;
+}
