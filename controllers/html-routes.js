@@ -8,6 +8,7 @@ let Comment = require('../models/comment.js');
 
 router.get('/', (req, res) => {
   Article.find({}, (err, art) => {
+    console.log(art.length);
     if (err) {
       console.log(err);
     } else {

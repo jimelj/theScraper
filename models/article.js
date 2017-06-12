@@ -16,6 +16,10 @@ let ArticleSchema = new Schema({
     required: true,
     unique: true
   },
+  content:{
+    type: String,
+    unique: true
+  },
   //table joins????
   comment: {
     type: Schema.Types.ObjectId,

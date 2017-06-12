@@ -1,11 +1,19 @@
 <div class="art">
+  <div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  You have <strong>{{article.length}}</strong> new articles!
+</div>
+<div class="alert alert-success alert-dismissible" role="alert">
+<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<strong>Warning!</strong> Better check yourself, you're not looking too good.
+</div>
 {{#each article}}
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title">{{this.title}}</h3>
   </div>
   <div class="panel-body">
-    Panel content
+    {{{this.content}}}
   </div>
 </div>
 {{/each}}

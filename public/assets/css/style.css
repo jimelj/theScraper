@@ -1,14 +1,26 @@
-.navbar{
+.navbar {
   padding: 15px;
 }
 
-.navbar-brand{
+.navbar-brand {
   font-size: 2em;
 }
 
 .art {
   padding: 20px;
 }
-.navbar-default{
+
+.navbar-default {
   margin-bottom: 0;
+}
+
+.banner{
+    width: 100%;
+  height: auto;
+}
+
+.panel-body img {
+  width: 20%;
+  height: auto;
+  display: block;
 }

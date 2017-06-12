@@ -13,11 +13,12 @@ router.get('/scraper', (req, res) => {
   request('https://www.macrumors.com/', (err, respond, html) => {
     let $ = cheerio.load(html);
     // console.log(html);
-    $('.article h2').each(function(i, element) {
+    $('#mainContainer .article').each(function(i, element) {
       let result = {};
-      result.title = $(this).children("a").text();
-      result.link = $(this).children("a").attr("href");
-      console.log(result);
+      result.title = $(this).children("h2").children('a').text();
+      result.link = $(this).children("h2").children('a').attr("href");
+      result.content = $(this).children('.content').text();
+      // console.log(result);
 
       let oneArticle = new Article(result);
 
@@ -30,6 +31,7 @@ router.get('/scraper', (req, res) => {
       });
     });
   });
+  res.redirect('/');
 });
 //Get all Articles from mongo
 router.get('/articles', (req, res) => {
