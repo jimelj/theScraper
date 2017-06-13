@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 //DB Dep adding our models
-let Article = require('../models/Article.js');
+let Article = require('../models/article.js');
 let Comment = require('../models/comment.js');
 
 router.get('/', (req, res) => {
