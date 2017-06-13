@@ -32,13 +32,18 @@ app.set("view engine", "handlebars");
 let htmlRoutes = require('./controllers/html-routes.js');
 let apiRoutes = require('./controllers/api-routes.js');
 app.use('/', htmlRoutes);
-app.use('/api',apiRoutes);
+app.use('/api', apiRoutes);
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
 //Database Config with mongoose
-mongoose.connect('mongodb://localhost/theScraper');
+if (process.env.MONGODB_URI) {
+  mongoose.connect('mongodb://heroku_n9mdksz4:cn2fgs7ivlb67qebmlcvg44v2u@ds127132.mlab.com:27132/heroku_n9mdksz4');
+} else {
+  mongoose.connect('mongodb://localhost/theScraper');
+}
+
 let db = mongoose.connection;
 
 //Handle Database(mongoose) errors
