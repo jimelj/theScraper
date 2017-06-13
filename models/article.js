@@ -19,7 +19,8 @@ let ArticleSchema = new Schema({
   },
   content:{
     type: String,
-    unique: true
+    unique: true,
+    max: 1000
   },
   saved:{
     type: Boolean,

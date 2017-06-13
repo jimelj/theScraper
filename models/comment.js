@@ -6,10 +6,8 @@ let Schema = mongoose.Schema;
 //Create the comment Schema
 
 let CommentSchema = new Schema({
-  title:{
-    type: String
-  },
-  body:{
+
+  comment:{
     type: String
   }
 });

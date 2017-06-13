@@ -94,9 +94,9 @@ router.get("/comment/:id", function(req, res) {
 // Create a new note or replace an existing note
 router.post("/comment/:id", function(req, res) {
   // Create a new note and pass the req.body to the entry
-  console.log(req.body);
-  var newComment = new Comment(req.body);
 
+  var newComment = new Comment(req.body);
+  console.log(newComment);
   // And save the new note the db
   newComment.save(function(error, doc) {
     // Log any errors
@@ -106,7 +106,7 @@ router.post("/comment/:id", function(req, res) {
     // Otherwise
     else {
       // Use the article id to find and update it's note
-      Article.findOneAndUpdate({ "_id": req.params.id }, { "note": doc._id })
+      Article.findOneAndUpdate({ "_id": req.params.id }, { "comment": doc._id })
       // Execute the above query
       .exec(function(err, doc) {
         // Log any errors
