@@ -46,6 +46,27 @@ router.get('/articles', (req, res) => {
 
 });
 
+router.get('/save/:id', (req, res) => {
+
+  Article.findOneAndUpdate({ "_id": req.params.id }, {$set:{saved:"true"}}, {new: true}, function(err, art){
+      if(err){
+          console.log("Something wrong when updating data!");
+      }
+
+      console.log(art);
+  });
+
+Article.findOneAndUpdate({ "_id": req.params.id },(err,art) =>{
+  if (err) {
+    console.log(err);
+  } else {
+    Article.saveArticle();
+  }
+});
+res.redirect('/');
+});
+
+
 
 
 

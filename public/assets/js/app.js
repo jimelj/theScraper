@@ -5,4 +5,9 @@
 //   }
 //
 // });
-$('alert').show();
+console.log('app.js');
+$(document).on('click','.btn', function(){
+
+  $('.alert').show();
+  console.log('button fired');
+});

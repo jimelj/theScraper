@@ -24,3 +24,11 @@
   height: auto;
   display: block;
 }
+.alert{
+  display:none;
+}
+
+.panel-title{
+  margin: 5px;
+  font-size: 2em;
+}

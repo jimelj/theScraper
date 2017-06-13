@@ -3,18 +3,24 @@
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   You have <strong>{{article.length}}</strong> new articles!
 </div>
-<div class="alert alert-success alert-dismissible" role="alert">
+{{!-- <div class="alert alert-danger alert-dismissible hide" role="alert">
 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-<strong>Warning!</strong> Better check yourself, you're not looking too good.
-</div>
+<strong>Sorry!</strong> There is no new articles.
+</div> --}}
 {{#each article}}
+{{#unless saved}}
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">{{this.title}}</h3>
-  </div>
+         <div class="titlep panel-title pull-left">
+         {{this.title}}
+         </div>
+        <div class="panel-title pull-right"><a href="/api/save/{{this.id}}" class="btn btn-success" data-id='{{this.id}}' >SAVE ARTICLE</a></div>
+        <div class="clearfix"></div>
+    </div>
   <div class="panel-body">
     {{{this.content}}}
   </div>
 </div>
+{{/unless}}
 {{/each}}
 </div>

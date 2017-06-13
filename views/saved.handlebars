@@ -1,0 +1,18 @@
+<div class="art">
+{{#each article}}
+{{#if saved}}
+<div class="panel panel-primary">
+  <div class="panel-heading">
+         <div class="titlep panel-title pull-left">
+         {{this.title}}
+         </div>
+        <div class="panel-title pull-right"><a href="/api/save/{{this.id}}" class="btn btn-success" data-id='{{this.id}}' >Comment</a><a href="/api/save/{{this.id}}" class="btn btn-success" data-id='{{this.id}}' >Comment</a></div>
+        <div class="clearfix"></div>
+    </div>
+  <div class="panel-body">
+    {{{this.content}}}
+  </div>
+</div>
+{{/if}}
+{{/each}}
+</div>

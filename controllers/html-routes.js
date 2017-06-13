@@ -19,6 +19,20 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/saved', (req, res) => {
+  Article.find({}, (err, art) => {
+    console.log(art.length);
+    console.log(art);
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('saved', {
+        article: art
+      });
+    }
+  });
+});
+
 
 
 
