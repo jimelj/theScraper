@@ -56,19 +56,71 @@ router.get('/save/:id', (req, res) => {
       console.log(art);
   });
 
-Article.findOneAndUpdate({ "_id": req.params.id },(err,art) =>{
-  if (err) {
-    console.log(err);
-  } else {
-    Article.saveArticle();
-  }
-});
 res.redirect('/');
 });
+router.get('/delete/:id', (req, res) => {
 
+  Article.findOneAndUpdate({ "_id": req.params.id }, {$set:{saved:"false"}}, {new: true}, function(err, art){
+      if(err){
+          console.log("Something wrong when updating data!");
+      }
 
+      console.log(art);
+  });
 
+res.redirect('/saved');
+});
 
+router.get("/comment/:id", function(req, res) {
+  // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
+  Article.findOne({ "_id": req.params.id })
+  // ..and populate all of the notes associated with it
+  .populate("comment")
+  // now, execute our query
+  .exec(function(error, doc) {
+    // Log any errors
+    if (error) {
+      console.log(error);
+    }
+
+    else {
+      console.log(doc);
+      // console.log(res.body);
+      // res.redirect('/saved');
+    }
+  });
+});
+
+// Create a new note or replace an existing note
+router.post("/comment/:id", function(req, res) {
+  // Create a new note and pass the req.body to the entry
+  console.log(req.body);
+  var newComment = new Comment(req.body);
+
+  // And save the new note the db
+  newComment.save(function(error, doc) {
+    // Log any errors
+    if (error) {
+      console.log(error);
+    }
+    // Otherwise
+    else {
+      // Use the article id to find and update it's note
+      Article.findOneAndUpdate({ "_id": req.params.id }, { "note": doc._id })
+      // Execute the above query
+      .exec(function(err, doc) {
+        // Log any errors
+        if (err) {
+          console.log(err);
+        }
+        else {
+          // Or send the document to the browser
+        res.redirect('/saved');
+        }
+      });
+    }
+  });
+});
 
 
 

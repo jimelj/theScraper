@@ -32,3 +32,11 @@
   margin: 5px;
   font-size: 2em;
 }
+
+.comments{
+  background: purple !important;
+  margin-right: 10px;
+}
+textarea {
+    resize: none;
+}

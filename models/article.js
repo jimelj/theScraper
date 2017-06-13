@@ -28,7 +28,7 @@ let ArticleSchema = new Schema({
   //table joins????
   comment: {
     type: Schema.Types.ObjectId,
-    ref: 'note'
+    ref: 'Comment'
   }
 });
 ArticleSchema.plugin(uniqueValidator);

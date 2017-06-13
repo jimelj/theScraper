@@ -6,13 +6,38 @@
          <div class="titlep panel-title pull-left">
          {{this.title}}
          </div>
-        <div class="panel-title pull-right"><a href="/api/save/{{this.id}}" class="btn btn-success" data-id='{{this.id}}' >Comment</a><a href="/api/save/{{this.id}}" class="btn btn-success" data-id='{{this.id}}' >Comment</a></div>
+        <div class="panel-title pull-right"><a href="/api/comment/{{this.id}}" class="btn btn-success comments" data-toggle="modal" data-target="#{{this.id}}" data-id='{{this.id}}' >COMMENTS</a><a href="/api/delete/{{this.id}}" class="btn btn-danger" data-id='{{this.id}}' >DELETE FROM SAVED</a></div>
         <div class="clearfix"></div>
     </div>
   <div class="panel-body">
     {{{this.content}}}
   </div>
 </div>
+
+<div id="{{this.id}}" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Notes for Article: {{this.id}} </h4>
+      </div>
+      <div class="modal-body">
+        <form action="/api/comment/{{this.id}}" method="POST">
+          <div class="form-group">
+              <label for="textArea" class="col-lg-2 control-label">Comments</label>
+
+                <textarea class="form-control" name="body" rows="3" id="textArea"></textarea>
+
+            </div>
+  <button type="submit" class="btn btn-success pull-right">SAVE COMMENT</button>
+  <div class="clearfix"></div>
+</form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 {{/if}}
 {{/each}}
 </div>
