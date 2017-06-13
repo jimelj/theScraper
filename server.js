@@ -39,7 +39,7 @@ mongoose.Promise = Promise;
 
 //Database Config with mongoose
 if (process.env.MONGODB_URI) {
-  mongoose.connect('mongodb://heroku_n9mdksz4:cn2fgs7ivlb67qebmlcvg44v2u@ds127132.mlab.com:27132/heroku_n9mdksz4');
+  mongoose.connect('process.env.MONGODB_URI');
 } else {
   mongoose.connect('mongodb://localhost/theScraper');
 }
