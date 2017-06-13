@@ -5,7 +5,7 @@ const router = express.Router();
 const request = require('request');
 const cheerio = require('cheerio');
 //DB Dep adding our models
-let Article = require('../models/Article.js');
+let Article = require('../models/article.js');
 let Comment = require('../models/comment.js');
 
 //Route to scrape macrumors.com
