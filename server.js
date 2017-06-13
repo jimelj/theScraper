@@ -53,4 +53,4 @@ db.on('error', (error) => console.log('Mongoose Error:', error));
 db.on('open', () => console.log('Mongoose connection has been successful!'));
 
 //Start and litsen on 8080
-app.listen(8080, () => console.log('====🌎 🚈 🖥️ 📡===> App listening on PORT ' + PORT + ' ✅'));
+app.listen(PORT, () => console.log('====🌎 🚈 🖥️ 📡===> App listening on PORT ' + PORT + ' ✅'));
