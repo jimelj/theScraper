@@ -103,6 +103,7 @@ router.post("/comment/:id", function(req, res) {
     if (error) {
       console.log(error);
     }
+    
     // Otherwise
     else {
       // Use the article id to find and update it's note
