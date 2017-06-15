@@ -20,7 +20,9 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title">Notes for Article: {{this.id}} </h4>
-        <h5><span class="label label-primary">Comments</span> {{this.comment.comment}}</h5>
+        {{#each this.comment}}
+        <h5><span class="label label-primary">Comments</span> {{this.comment}}</h5>
+        {{/each}}
       </div>
       <div class="modal-body">
         <form action="/api/comment/{{this.id}}" method="POST">

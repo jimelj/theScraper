@@ -103,11 +103,11 @@ router.post("/comment/:id", function(req, res) {
     if (error) {
       console.log(error);
     }
-
+    // { "_id": req.params.id }, { "comment": doc._id }=======for reference later
     // Otherwise
     else {
       // Use the article id to find and update it's note
-      Article.findOneAndUpdate({ "_id": req.params.id }, { "comment": doc._id })
+      Article.findOneAndUpdate({ "_id": req.params.id }, { $push: { "comment": doc._id } }, { new: true })
       // Execute the above query
       .exec(function(err, doc) {
         // Log any errors

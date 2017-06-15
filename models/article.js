@@ -27,10 +27,10 @@ let ArticleSchema = new Schema({
     default: false
   },
   //table joins????
-  comment: {
+  comment: [{
     type: Schema.Types.ObjectId,
     ref: 'Comment'
-  }
+  }]
 });
 ArticleSchema.plugin(uniqueValidator);
 ArticleSchema.methods.saveArticle = function() {
