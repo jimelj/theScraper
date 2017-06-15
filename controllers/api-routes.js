@@ -71,25 +71,25 @@ router.get('/delete/:id', (req, res) => {
 res.redirect('/saved');
 });
 
-router.get("/comment/:id", function(req, res) {
-  // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
-  Article.findOne({ "_id": req.params.id })
-  // ..and populate all of the notes associated with it
-  .populate("comment")
-  // now, execute our query
-  .exec(function(error, doc) {
-    // Log any errors
-    if (error) {
-      console.log(error);
-    }
-
-    else {
-      console.log(doc);
-      // console.log(res.body);
-      // res.redirect('/saved');
-    }
-  });
-});
+// router.get("/comment/:id", function(req, res) {
+//   // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
+//   Article.findOne({ "_id": req.params.id })
+//   // ..and populate all of the notes associated with it
+//   .populate("comment")
+//   // now, execute our query
+//   .exec(function(error, doc) {
+//     // Log any errors
+//     if (error) {
+//       console.log(error);
+//     }
+//
+//     else {
+//       console.log(doc);
+//       // console.log(res.body);
+//       // res.redirect('/saved');
+//     }
+//   });
+// });
 
 // Create a new note or replace an existing note
 router.post("/comment/:id", function(req, res) {
@@ -103,7 +103,7 @@ router.post("/comment/:id", function(req, res) {
     if (error) {
       console.log(error);
     }
-    
+
     // Otherwise
     else {
       // Use the article id to find and update it's note

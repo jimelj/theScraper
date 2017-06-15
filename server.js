@@ -5,12 +5,15 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
+const favicon = require('serve-favicon');
+var path = require('path');
 
 //Lets init express and port
 let app = express();
 let PORT = process.env.PORT || 8080;
 
 //static dir
+app.use(favicon(path.join(__dirname,'public','assets','img','favicon.ico')));
 app.use(express.static(process.cwd() + '/public'));
 
 //logger with morgan
